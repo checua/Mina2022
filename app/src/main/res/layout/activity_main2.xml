@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Main2Activity">
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="359dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Salir" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/almacen"
+        android:foregroundTint="#FFFFFF"
+        android:gravity="bottom|left"
+        android:paddingLeft="5dp"
+        android:paddingBottom="5dp"
+        android:text="Residuos Peligrosos
+"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/y"
+                android:foregroundTint="#FFFFFF"
+                android:gravity="bottom|left"
+                android:paddingLeft="5dp"
+                android:paddingBottom="5dp"
+                android:text="Almacén
+"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/bitacora"
+                android:foregroundTint="#FFFFFF"
+                android:gravity="bottom|left"
+                android:paddingLeft="5dp"
+                android:paddingBottom="5dp"
+                android:text="Bitácora
+"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/x"
+                android:foregroundTint="#FFFFFF"
+                android:gravity="bottom|left"
+                android:paddingLeft="5dp"
+                android:paddingBottom="5dp"
+                android:text="MAnifiesto
+"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/report2"
+                android:foregroundTint="#FFFFFF"
+                android:gravity="bottom|left"
+                android:paddingLeft="5dp"
+                android:paddingBottom="5dp"
+                android:text="Reporte"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/imageButton6"
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                app:srcCompat="@mipmap/ic_launcher" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
