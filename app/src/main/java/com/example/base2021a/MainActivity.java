@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     public String strUsuario;
     public String strContra;
+    
 
     ProgressBar progressBar;
 
@@ -64,14 +65,22 @@ public class MainActivity extends AppCompatActivity {
             etContra.setEnabled ( false );
             btnLogin.setEnabled ( false );
 */
+
             etUsuario.setVisibility (View.INVISIBLE);
             etContra.setVisibility (View.INVISIBLE);
             btnLogin.setVisibility (View.INVISIBLE);
             tvRegistrar.setVisibility ( View.INVISIBLE );
+
             //progressBar.setVisibility(View.VISIBLE);
 
-            TareaWSConsulta tarea = new TareaWSConsulta();
-            tarea.execute();
+            Intent intentReg = new Intent ( MainActivity.this, Main2Activity.class );
+            MainActivity.this.startActivity ( intentReg );
+
+            //TareaWSConsulta tarea = new TareaWSConsulta();
+            //tarea.execute();
+        }
+        else{
+
         }
 
     }
