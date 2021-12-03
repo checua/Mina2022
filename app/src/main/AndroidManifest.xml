@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Base2021A">
-        <activity android:name=".Main3Activity"></activity>
+        <activity android:name=".BitacoraActivity"></activity>
+        <activity android:name=".AlmacenActivity" />
+        <activity android:name=".Main3Activity" />
         <activity android:name=".Main2Activity" />
         <activity android:name=".LayOut" />
         <activity android:name=".Default" />
