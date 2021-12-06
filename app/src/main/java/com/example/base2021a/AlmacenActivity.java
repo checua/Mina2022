@@ -36,11 +36,11 @@ public class AlmacenActivity extends AppCompatActivity {
         BarData barData = new BarData ( barDataSet );
         barChart.setFitBars ( true );
         barChart.setData ( barData );
-        barChart.getDescription ().setText ( "% de alamcenamiento" );
+        barChart.getDescription ().setText ( "%" );
         barChart.animateY (2000);
 
-
     }
+
 
 
 }

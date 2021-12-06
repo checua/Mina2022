@@ -64,7 +64,7 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText ( getApplicationContext (), "Manifiesto", Toast.LENGTH_LONG ).show ();
-                Intent intentReg = new Intent ( Main2Activity.this, AlmacenActivity.class );
+                Intent intentReg = new Intent ( Main2Activity.this, ManifiestoActivity.class );
                 startActivity(intentReg);
             }
         } );
