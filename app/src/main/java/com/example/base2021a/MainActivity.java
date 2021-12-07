@@ -55,39 +55,7 @@ public class MainActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.pbbar);
         progressBar.setVisibility(View.INVISIBLE);
 
-        SharedPreferences sharedpreferences = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
-        //get your string with default string in case referred key is not found
-        String str1 = sharedpreferences.getString("user1",  null);
-        String str2 = sharedpreferences.getString("user2",  null);
 
-        if (str1 != null && str2 != null) {
-            //etUsuario.setText(str1);
-            //etContra.setText(str2);
-/*
-            etUsuario.setEnabled ( false );
-            etContra.setEnabled ( false );
-            btnLogin.setEnabled ( false );
-*/
-
-            etUsuario.setVisibility (View.INVISIBLE);
-            etContra.setVisibility (View.INVISIBLE);
-            btnLogin.setVisibility (View.INVISIBLE);
-            tvRegistrar.setVisibility ( View.INVISIBLE );
-            imagen1.setVisibility ( View.INVISIBLE );
-
-
-
-            progressBar.setVisibility(View.VISIBLE);
-
-            Intent intentReg = new Intent ( MainActivity.this, Main2Activity.class );
-            MainActivity.this.startActivity ( intentReg );
-
-            //TareaWSConsulta tarea = new TareaWSConsulta();
-            //tarea.execute();
-        }
-        else{
-            progressBar.setVisibility(View.INVISIBLE);
-        }
 
     }
 
@@ -96,6 +64,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart()
     {
         super.onStart();
+
+        SharedPreferences sharedpreferences = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        //get your string with default string in case referred key is not found
+        String str1 = sharedpreferences.getString("user1",  null);
+        String str2 = sharedpreferences.getString("user2",  null);
+
+        if (str1 != null && str2 != null) {
+            etUsuario.setVisibility (View.INVISIBLE);
+            etContra.setVisibility (View.INVISIBLE);
+            btnLogin.setVisibility (View.INVISIBLE);
+            tvRegistrar.setVisibility ( View.INVISIBLE );
+            imagen1.setVisibility ( View.INVISIBLE );
+            progressBar.setVisibility(View.VISIBLE);
+
+            Intent intentReg = new Intent ( MainActivity.this, Main2Activity.class );
+            MainActivity.this.startActivity ( intentReg );
+        }
+        else{
+            progressBar.setVisibility(View.INVISIBLE);
+
 
         //Toast.makeText(getApplicationContext(),"Now onStart() calls", Toast.LENGTH_LONG).show(); //onStart Called
         tvRegistrar.setOnClickListener(new View.OnClickListener() {
@@ -131,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 etContra.setText("");
             }
         } );
+        }
     }
 
 
