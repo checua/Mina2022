@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText etUsuario;
     private EditText etContra;
     private Button btnLogin;
+    private ImageView imagen1;
 
     public String strUsuario;
     public String strContra;
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         etContra = (EditText) findViewById(R.id.etContra);
         btnLogin = (Button) findViewById(R.id.btnLogin);
         tvRegistrar = (TextView) findViewById(R.id.tvRegistrar);
+        imagen1 = (ImageView) findViewById ( R.id.image1 );
 
         strUsuario = etUsuario.toString();
         strContra = etContra.toString();
@@ -70,8 +73,11 @@ public class MainActivity extends AppCompatActivity {
             etContra.setVisibility (View.INVISIBLE);
             btnLogin.setVisibility (View.INVISIBLE);
             tvRegistrar.setVisibility ( View.INVISIBLE );
+            imagen1.setVisibility ( View.INVISIBLE );
 
-            //progressBar.setVisibility(View.VISIBLE);
+
+
+            progressBar.setVisibility(View.VISIBLE);
 
             Intent intentReg = new Intent ( MainActivity.this, Main2Activity.class );
             MainActivity.this.startActivity ( intentReg );
@@ -80,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
             //tarea.execute();
         }
         else{
-
+            progressBar.setVisibility(View.INVISIBLE);
         }
 
     }
@@ -90,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart()
     {
         super.onStart();
+
         //Toast.makeText(getApplicationContext(),"Now onStart() calls", Toast.LENGTH_LONG).show(); //onStart Called
         tvRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
