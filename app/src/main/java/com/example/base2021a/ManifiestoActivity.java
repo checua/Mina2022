@@ -1,34 +1,46 @@
 package com.example.base2021a;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.charts.BarLineChartBase;
-import com.github.mikephil.charting.components.AxisBase;
-import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.formatter.IAxisValueFormatter;
-import com.github.mikephil.charting.formatter.ValueFormatter;
-import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
 public class ManifiestoActivity extends AppCompatActivity {
 
-    private BarChart mChart;
+    BarChart barChart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_manifiesto );
-        mChart = (BarChart) findViewById(R.id.barChartM);
+        barChart = (BarChart) findViewById ( R.id.barChartM );
+        barChart.setDrawBarShadow ( false );
+        barChart.setDrawValueAboveBar ( false );
+        barChart.setMaxVisibleValueCount ( 50 );
+        barChart.setPinchZoom ( false );
+        barChart.setDrawGridBackground ( false);
 
-    /* Este si jala }*/
+        ArrayList<BarEntry> barEntries = new ArrayList<> (  );
+        barEntries.add ( new BarEntry ( 1, 40f ) );
+        barEntries.add ( new BarEntry ( 2, 44f ) );
+        barEntries.add ( new BarEntry ( 3, 30f ) );
+        barEntries.add ( new BarEntry ( 4, 36f ) );
+
+        BarDataSet barDataSet = new BarDataSet ( barEntries, "DataSet 1" );
+        barDataSet.setColors ( ColorTemplate.COLORFUL_COLORS );
+        BarData data = new BarData ( barDataSet);
+        data.setBarWidth (0.9f  );
+        barChart.setData ( data );
+
+
+
+    /* Este si jala }
 
         mChart.setDrawBarShadow(false);
         mChart.getDescription().setEnabled(false);
@@ -141,5 +153,8 @@ public class ManifiestoActivity extends AppCompatActivity {
         public String getFormattedValue(float value, AxisBase axis) {
             return labels[(int) value];
         }
+    }
+
+     */
     }
 }

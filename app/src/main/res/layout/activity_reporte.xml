@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ManifiestoActivity">
+    tools:context=".ReporteActivity">
 
     <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/barChartM"
+        android:id="@+id/barChartR"
         android:layout_width="match_parent"
-        android:layout_height="400sp"
-        tools:ignore="MissingConstraints" />
+        android:layout_height="350dp"
+        tools:ignore="MissingConstraints">
+
+    </com.github.mikephil.charting.charts.BarChart>
 
 </android.support.constraint.ConstraintLayout>
