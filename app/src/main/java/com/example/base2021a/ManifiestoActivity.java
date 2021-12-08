@@ -25,7 +25,7 @@ public class ManifiestoActivity extends AppCompatActivity {
     ArrayList barEntries;
 
     // creating a string array for displaying days.
-    String[] days = new String[]{"Sunday", "Monday", "Tuesday", "Thursday", "Friday", "Saturday"};
+    String[] days = new String[]{"Tierra", "Aceite", "Recipientes", "Estopa", "Otros"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +36,9 @@ public class ManifiestoActivity extends AppCompatActivity {
         barChart = findViewById(R.id.barChartM);
 
         // creating a new bar data set.
-        barDataSet1 = new BarDataSet(getBarEntriesOne(), "First Set");
-        barDataSet1.setColor(getApplicationContext().getResources().getColor(R.color.purple_200));
-        barDataSet2 = new BarDataSet(getBarEntriesTwo(), "Second Set");
+        barDataSet1 = new BarDataSet(getBarEntriesOne(), "Límites");
+        barDataSet1.setColor(getApplicationContext().getResources().getColor(R.color.red));
+        barDataSet2 = new BarDataSet(getBarEntriesTwo(), "Actual");
         barDataSet2.setColor( Color.BLUE);
 
         // below line is to add bar data set to our bar data.
@@ -121,12 +121,12 @@ public class ManifiestoActivity extends AppCompatActivity {
 
         // adding new entry to our array list with bar
         // entry and passing x and y axis value to it.
-        barEntries.add(new BarEntry(1f, 4));
-        barEntries.add(new BarEntry(2f, 6));
-        barEntries.add(new BarEntry(3f, 8));
-        barEntries.add(new BarEntry(4f, 2));
-        barEntries.add(new BarEntry(5f, 4));
-        barEntries.add(new BarEntry(6f, 1));
+        barEntries.add(new BarEntry(1f, 80));
+        barEntries.add(new BarEntry(2f, 70));
+        barEntries.add(new BarEntry(3f, 30));
+        barEntries.add(new BarEntry(4f, 20));
+        barEntries.add(new BarEntry(5f, 50));
+
         return barEntries;
     }
 
@@ -138,12 +138,12 @@ public class ManifiestoActivity extends AppCompatActivity {
 
         // adding new entry to our array list with bar
         // entry and passing x and y axis value to it.
-        barEntries.add(new BarEntry(1f, 8));
-        barEntries.add(new BarEntry(2f, 12));
-        barEntries.add(new BarEntry(3f, 4));
-        barEntries.add(new BarEntry(4f, 1));
-        barEntries.add(new BarEntry(5f, 7));
-        barEntries.add(new BarEntry(6f, 3));
+        barEntries.add(new BarEntry(1f, 70));
+        barEntries.add(new BarEntry(2f, 60));
+        barEntries.add(new BarEntry(3f, 35));
+        barEntries.add(new BarEntry(4f, 8));
+        barEntries.add(new BarEntry(5f, 10));
+
         return barEntries;
     }
 
