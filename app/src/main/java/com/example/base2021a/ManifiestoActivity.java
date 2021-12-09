@@ -2,6 +2,7 @@ package com.example.base2021a;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -25,7 +26,9 @@ public class ManifiestoActivity extends AppCompatActivity {
     ArrayList barEntries;
 
     // creating a string array for displaying days.
-    String[] days = new String[]{"Tierra", "Aceite", "Recipientes", "Estopa", "Otros"};
+    String[] strLabels = new String[]{ "Tierra", "Aceite", "Recipientes", "Estopa", "Otros" };
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +37,77 @@ public class ManifiestoActivity extends AppCompatActivity {
 
         // initializing variable for bar chart.
         barChart = findViewById(R.id.barChartM);
+/*
+        final ArrayList<String> xLabel = new ArrayList<>();
+        int i;
+        xLabel.add("Tierra");
+        xLabel.add("Aceite");
+        xLabel.add("Recipientes");
+        xLabel.add("Estopa");
+        xLabel.add("Otros");
+
+
+        // or use some other logic to save your data in list. For ex.
+        for(i=1; i<50; i+=2)
+        {
+            xLabel.add(""+3*i);
+        }
+
+ */
+        int act1 = 70;
+        int act2 = 60;
+        int act3 = 35;
+        int act4 = 8;
+        int act5 = 10;
+
+        int lim1 = 80;
+        int lim2 = 70;
+        int lim3 = 30;
+        int lim4 = 20;
+        int lim5 = 50;
+
+        String color;
+        String color1;
+        String color2;
+        String color3;
+        String color4;
+        String color5;
+
+        String Act;
+        String Lim;
+        float res;
+
+        for(int i=1; i>4; i++)
+        {
+            Act = "act" + i;
+            Lim = "lim" + i;
+
+            res = Integer.parseInt ( Act )  / Integer.parseInt (Lim);
+
+            if (res >= 0 && res <= .5) {
+
+                color = "color" + i;
+            }
+
+        }
 
         // creating a new bar data set.
-        barDataSet1 = new BarDataSet(getBarEntriesOne(), "Límites");
-        barDataSet1.setColor(getApplicationContext().getResources().getColor(R.color.red));
-        barDataSet2 = new BarDataSet(getBarEntriesTwo(), "Actual");
+        barDataSet1 = new BarDataSet(getBarEntriesOne(act1,act2,act3,act4,act5), "Actual");
+        //barDataSet1.setColor(getApplicationContext().getResources().getColor(R.color.red));
+
+
+       // barDataSet1.setColors(new int[] { R.color.black, R.color.purple_500, R.color.teal_200, R.color.red, R.color.purple_200 });
+        barDataSet1.setColors(
+                ContextCompat.getColor(barChart.getContext(), R.color.black),
+                ContextCompat.getColor(barChart.getContext(), R.color.purple_200),
+                ContextCompat.getColor(barChart.getContext(), R.color.red),
+                ContextCompat.getColor(barChart.getContext(), R.color.teal_200),
+                ContextCompat.getColor(barChart.getContext(), R.color.red)
+        );
+
+        barDataSet2 = new BarDataSet(getBarEntriesTwo(lim1,lim2,lim3,lim4,lim5), "Límites");
         barDataSet2.setColor( Color.BLUE);
+        barChart.animateY (2000);
 
         // below line is to add bar data set to our bar data.
         BarData data = new BarData(barDataSet1, barDataSet2);
@@ -58,7 +126,16 @@ public class ManifiestoActivity extends AppCompatActivity {
 
         // below line is to set value formatter to our x-axis and
         // we are adding our days to our x axis.
-        xAxis.setValueFormatter(new IndexAxisValueFormatter (days));
+        xAxis.setValueFormatter(new IndexAxisValueFormatter (strLabels));
+/*
+        xAxis.setValueFormatter(new IndexAxisValueFormatter (xLabel) {
+            @Override
+            public String getFormattedValue(float value, AxisBase axis) {
+                return xLabel.get((int)value);
+            }
+        });
+
+ */
 
         // below line is to set center axis
         // labels to our bar chart.
@@ -103,6 +180,7 @@ public class ManifiestoActivity extends AppCompatActivity {
         // below line is to
         // animate our chart.
         barChart.animate();
+        barChart.animateY (2000);
 
         // below line is to group bars
         // and add spacing to it.
@@ -114,40 +192,39 @@ public class ManifiestoActivity extends AppCompatActivity {
     }
 
     // array list for first set
-    private ArrayList<BarEntry> getBarEntriesOne() {
+    private ArrayList<BarEntry> getBarEntriesOne(int a,int b,int c,int d,int e) {
 
         // creating a new array list
         barEntries = new ArrayList<>();
 
         // adding new entry to our array list with bar
         // entry and passing x and y axis value to it.
-        barEntries.add(new BarEntry(1f, 80));
-        barEntries.add(new BarEntry(2f, 70));
-        barEntries.add(new BarEntry(3f, 30));
-        barEntries.add(new BarEntry(4f, 20));
-        barEntries.add(new BarEntry(5f, 50));
+        barEntries.add(new BarEntry(1f, a));
+        barEntries.add(new BarEntry(2f, b));
+        barEntries.add(new BarEntry(3f, c));
+        barEntries.add(new BarEntry(4f, d));
+        barEntries.add(new BarEntry(5f, e));
 
         return barEntries;
     }
 
     // array list for second set.
-    private ArrayList<BarEntry> getBarEntriesTwo() {
+    private ArrayList<BarEntry> getBarEntriesTwo(int a,int b,int c,int d,int e) {
 
         // creating a new array list
         barEntries = new ArrayList<>();
 
         // adding new entry to our array list with bar
         // entry and passing x and y axis value to it.
-        barEntries.add(new BarEntry(1f, 70));
-        barEntries.add(new BarEntry(2f, 60));
-        barEntries.add(new BarEntry(3f, 35));
-        barEntries.add(new BarEntry(4f, 8));
-        barEntries.add(new BarEntry(5f, 10));
+        barEntries.add(new BarEntry(1f, a));
+        barEntries.add(new BarEntry(2f, b));
+        barEntries.add(new BarEntry(3f, c));
+        barEntries.add(new BarEntry(4f, d));
+        barEntries.add(new BarEntry(5f, e));
 
         return barEntries;
     }
-
-        }
+}
 
 
 
@@ -267,4 +344,3 @@ public class ManifiestoActivity extends AppCompatActivity {
     }
 
      */
-
